@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Dv5+6JztN6FcwIHTvuCFsSZ2++NzTXkUNdOrxu8e8fI=",
+  "Source": "WorkoutGoalApi",
+  "BasePath": "_content/WorkoutGoalApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
