@@ -202,10 +202,6 @@ Adım	Endpoint	Açıklama
 
 ---
 
-<img width="960" height="521" alt="update" src="https://github.com/user-attachments/assets/25f12775-617c-4140-bf70-c8b320aef718" />
-
----
-
 <img width="959" height="511" alt="goal list" src="https://github.com/user-attachments/assets/81dd1634-bcb9-4d31-a6f1-430f6168dcfe" />
 
 ---
