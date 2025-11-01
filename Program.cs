@@ -50,7 +50,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Middleware
-app.UseHttpsRedirection(); //uygulama yayına alındığında aktif edilebilir 
+app.UseHttpsRedirection(); 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseMiddleware<GlobalExceptionHandler>();  // genel hata yönetimi sağlayan middleware

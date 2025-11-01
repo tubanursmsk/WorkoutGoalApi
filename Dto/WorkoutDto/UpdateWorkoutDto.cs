@@ -2,8 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WorkoutGoalApi.Dto.WorkoutDto
 {
-    // Güncelleme DTO'su genellikle Create DTO'su ile aynı özelliklere sahiptir.
-    // Bazı durumlarda validasyon kuralları değişebilir.
     public class UpdateWorkoutDto
     {
         [Required]

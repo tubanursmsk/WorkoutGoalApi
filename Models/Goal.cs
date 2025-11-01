@@ -18,9 +18,10 @@ namespace WorkoutGoalApi.Models
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public bool IsCompleted { get; set; } 
+        
 
         [ForeignKey("User")]
-        public long UserId { get; set; } // Foreign Key
-        public User User { get; set; }  // Navigation Property
+        public long UserId { get; set; } 
+        public User User { get; set; }  
     }
 }

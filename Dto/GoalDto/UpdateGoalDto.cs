@@ -2,9 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WorkoutGoalApi.Dto.GoalDto
 {
-    // Güncelleme için genellikle tüm alanlar gerekmez.
-    // Özellikle hedefin mevcut durumunu güncellemek için ayrı bir DTO da yapılabilir
-    // ama şimdilik tam güncelleme yapalım:
     public class UpdateGoalDto
     {
         [Required]

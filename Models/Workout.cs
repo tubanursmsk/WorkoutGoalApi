@@ -16,8 +16,8 @@ namespace WorkoutGoalApi.Models
         public int CaloriesBurned { get; set; }
 
         [ForeignKey("User")]
-        public long UserId { get; set; } // Foreign Key
-        public User User { get; set; }  // Navigation Property
+        public long UserId { get; set; } 
+        public User User { get; set; } 
         public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
     }
 }
