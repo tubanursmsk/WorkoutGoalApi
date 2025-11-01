@@ -11,6 +11,10 @@ namespace WorkoutGoalApi.Dto.WorkoutDto
         public string WorkoutType { get; set; }
 
         [Required]
+        [StringLength(500, MinimumLength = 3)]
+        public string? Detail { get; set; }
+
+        [Required]
         [Range(1, 1440)]
         public int Duration { get; set; }
 

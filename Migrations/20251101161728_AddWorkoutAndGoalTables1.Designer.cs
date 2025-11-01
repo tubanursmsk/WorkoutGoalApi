@@ -11,8 +11,8 @@ using WorkoutGoalApi.Utils;
 namespace WorkoutGoalApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251101080413_AddWorkoutAndGoalTables")]
-    partial class AddWorkoutAndGoalTables
+    [Migration("20251101161728_AddWorkoutAndGoalTables1")]
+    partial class AddWorkoutAndGoalTables1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,10 @@ namespace WorkoutGoalApi.Migrations
 
                     b.Property<double>("CurrentValue")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("EndDate")
                         .HasColumnType("TEXT");

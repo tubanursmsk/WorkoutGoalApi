@@ -26,6 +26,10 @@ namespace WorkoutGoalApi.Migrations
                     b.Property<double>("CurrentValue")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTimeOffset>("EndDate")
                         .HasColumnType("TEXT");
 

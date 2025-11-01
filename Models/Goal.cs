@@ -12,6 +12,7 @@ namespace WorkoutGoalApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long GId { get; set; }
         public string GoalType { get; set; } = string.Empty;
+        public string Detail { get; set; } = string.Empty;
         public double TargetValue { get; set; } = 0.0;
         public double CurrentValue { get; set; } = 0.0;
         public DateTimeOffset StartDate { get; set; }

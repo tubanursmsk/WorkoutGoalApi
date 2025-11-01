@@ -29,7 +29,7 @@ namespace WorkoutGoalApi.Controllers
         }
 
         // Belirtilen ID'ye sahip ve o anki kullanıcıya ait egzersizi getirir.
-        [HttpGet("list/{id}")]
+        [HttpGet("/{id}")]
         public async Task<ActionResult<WorkoutDto>> GetWorkoutById(int id)
         {
             var workout = await _workoutService.GetWorkoutByIdAsync(id);

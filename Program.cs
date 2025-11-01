@@ -26,7 +26,7 @@ builder.Services.AddHttpContextAccessor();
 // Scoped Services --> sayesinde uygulama boyunca tek bir instance oluşturulur ve istek bazında kullanılır. bu işlem injection yöntemi ile yapılır
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<WorkoutService>();
-// builder.Services.AddScoped<GoalService>();
+builder.Services.AddScoped<GoalService>();
 
 
 // AutoMapper

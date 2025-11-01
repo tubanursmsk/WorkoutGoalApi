@@ -12,6 +12,10 @@ namespace WorkoutGoalApi.Dto.GoalDto
         public string? GoalType { get; set; }
 
         [Required]
+        [StringLength(500, MinimumLength = 3)]
+        public string? Detail { get; set; }
+
+        [Required]
         [Range(0.1, double.MaxValue)]
         public double TargetValue { get; set; }
 
@@ -20,9 +24,9 @@ namespace WorkoutGoalApi.Dto.GoalDto
         public double CurrentValue { get; set; }
 
         [Required]
-        public DateTime StartDate { get; set; }
+        public DateTimeOffset StartDate { get; set; }
 
         [Required]
-        public DateTime EndDate { get; set; }
+        public DateTimeOffset EndDate { get; set; }
     }
 }
