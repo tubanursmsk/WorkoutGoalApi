@@ -78,6 +78,43 @@ Kullanıcı giriş yaptıktan sonra Authorize butonuyla token girilerek doğruda
 
 ---
 
+## 📁 Proje Yapısı
+
+```
+FitnessTrackerAPI/
+│
+├── Controllers/
+│   ├── AuthController.cs
+│   ├── WorkoutController.cs
+│   └── GoalController.cs
+│
+├── Dto/
+│   ├── WorkoutDto/
+│   ├── GoalDto/
+│   └── UserDto/
+│
+├── Models/
+│   ├── User.cs
+│   ├── Workout.cs
+│   └── Goal.cs
+│
+├── Services/
+│   ├── AuthService.cs
+│   ├── WorkoutService.cs
+│   └── GoalService.cs
+│
+├── Middleware/
+│   └── GlobalExceptionHandler.cs
+│
+├── Mappings/
+│   └── AutoMapperProfile.cs
+│
+├── appsettings.json
+└── Program.cs
+```
+
+---
+
 ## 🚀 Projeyi Başlatma (Getting Started)
 
 ### 🧰 Gereksinimler
@@ -88,7 +125,7 @@ Kullanıcı giriş yaptıktan sonra Authorize butonuyla token girilerek doğruda
 
 ### ⚡ Kurulum Adımları
 
-# 1️⃣ Repo’yu klonla
+### 1️⃣ Repo’yu klonla
 
 ```bash
 git clone https://github.com/tubanursmsk/WorkoutGoalApi.git
@@ -97,24 +134,24 @@ git clone https://github.com/tubanursmsk/WorkoutGoalApi.git
 cd WorkoutGoalApi
 ```
 
-# 2️⃣ Bağımlılıkları yükle
+### 2️⃣ Bağımlılıkları yükle
 ```bash
 dotnet restore
 ```
 
-# 3️⃣ Veritabanını Oluşturun
+### 3️⃣ Veritabanını Oluşturun
 ```bash
 dotnet ef database update
 ```
 
-# 4️⃣ Bu komut, proje ana dizininde WorkoutGoalApi.db adlı SQLite veritabanını oluşturur.
+### 4️⃣ Bu komut, proje ana dizininde WorkoutGoalApi.db adlı SQLite veritabanını oluşturur.
 
-# 5️⃣ Uygulamayı Çalıştırın
+### 5️⃣ Uygulamayı Çalıştırın
 ```bash
 dotnet run
 ```
 
-# 6️⃣ Swagger Arayüzünü Açın
+### 6️⃣ Swagger Arayüzünü Açın
 Tarayıcıdan şu adrese gidin ve tüm endpoint’leri test edin.
 ```bash
 http://localhost:5282/swagger
@@ -134,16 +171,11 @@ http://localhost:5282/swagger
 
 ## 🧭 API Kullanım Akışı (Örnek)
 Adım	Endpoint	Açıklama
-1️⃣	POST /api/User/register	Yeni kullanıcı oluştur
-2️⃣	POST /api/User/login	JWT token al
-3️⃣	Authorize	Swagger’da token’ı gir
-4️⃣	POST /api/Workout	Yeni egzersiz ekle
-5️⃣	GET /api/Goal	Sadece kendi hedeflerini listele
-
----
-
-### appsettings.json
-
+- 1️⃣	POST /api/User/register	Yeni kullanıcı oluştur
+- 2️⃣	POST /api/User/login	JWT token al
+- 3️⃣	Authorize	Swagger’da token’ı gir
+- 4️⃣	POST /api/Workout	Yeni egzersiz ekle
+- 5️⃣	GET /api/Goal	Sadece kendi hedeflerini listele
 
 ---
 
