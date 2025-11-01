@@ -194,15 +194,39 @@ Adım	Endpoint	Açıklama
 
 ## 📸 Görseller
 
----
----
----
----
----
----
----
+<img width="683" height="384" alt="image" src="https://github.com/user-attachments/assets/5ce144c0-d7d4-4571-aa1a-8119b97df42c" />
+
 ---
 
+<img width="673" height="377" alt="image" src="https://github.com/user-attachments/assets/9f511246-6af3-4677-b7d2-4bad57a8c103" />
+
+---
+
+<img width="959" height="511" alt="goal list" src="https://github.com/user-attachments/assets/81dd1634-bcb9-4d31-a6f1-430f6168dcfe" />
+
+---
+
+<img width="956" height="506" alt="goal list id ile" src="https://github.com/user-attachments/assets/fb1a2b87-45d4-4fa9-8fe5-5554fbcdb455" />
+
+---
+
+<img width="676" height="378" alt="image" src="https://github.com/user-attachments/assets/4a37022e-752e-4db5-84dc-27a39d3683f6" />
+
+---
+
+<img width="683" height="384" alt="image" src="https://github.com/user-attachments/assets/ae4a2f73-50b5-4400-a988-8a852568fbb2" />
+
+---
+
+<img width="683" height="222" alt="image" src="https://github.com/user-attachments/assets/489715b4-7b77-40cb-b65c-2d65a335784f" />
+
+---
+
+<img width="713" height="261" alt="image" src="https://github.com/user-attachments/assets/9afbb047-25b9-4d86-bb71-eaf46c9b3351" />
+
+---
+
+<img width="703" height="203" alt="image" src="https://github.com/user-attachments/assets/4035a7fa-393b-479e-a897-400c6dfe348b" />
 
 ---
 
