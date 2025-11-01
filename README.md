@@ -1,0 +1,183 @@
+# 🏋️‍♀️ WorkoutGoalApi — ASP.NET Core REST API
+
+> **WorkoutGoalApi**, bir fitness takip uygulamasının backend (sunucu tarafı) altyapısını sağlayan **ASP.NET Core REST API** projesidir.  
+Kullanıcıların **egzersiz (Workout)** ve **hedef (Goal)** verilerini yönetmesini sağlar.  
+Uygulama güvenliği **JWT tabanlı kimlik doğrulama** sistemiyle sağlanır.
+
+---
+
+## 🏛️ Mimari Felsefe ve Tasarım Prensipleri
+
+Proje, **Katmanlı Mimari (N-Tier Architecture)** ve **Hizmet Odaklı Mimari (Service-Oriented Architecture)** prensiplerine uygun olarak tasarlanmıştır.  
+Amaç, kodun bakımı kolay, test edilebilir ve ölçeklenebilir bir yapıda olmasıdır.
+
+| Katman | Sorumluluk |
+|--------|-------------|
+| **Controllers (Sunum Katmanı)** | HTTP isteklerini alır, Service katmanını çağırır, sonucu DTO olarak istemciye döner. |
+| **Services (İş Mantığı Katmanı)** | Uygulamanın iş kurallarını içerir. Veriyi `DbContext` aracılığıyla işler ve Controller’a geri döner. |
+| **Entities (Veri Katmanı)** | Veritabanı tablolarını temsil eden POCO sınıflarıdır (`User`, `Workout`, `Goal`). |
+| **DTO (Data Transfer Objects)** | Katmanlar arası veri iletişimi için kullanılır. Veritabanı modellerinin dış dünyaya doğrudan açılmasını engeller. |
+
+Bu yapı sayesinde **sorumluluk ayrımı (Separation of Concerns)** korunur ve sistem daha modüler hale gelir.
+
+---
+
+## 💻 Teknik Altyapı (Technical Stack)
+
+| Bileşen | Teknoloji |
+|----------|------------|
+| **Framework** | .NET 8.0 (ASP.NET Core Web API) |
+| **Veritabanı** | SQLite (Entity Framework Core 8 ile yönetilir) |
+| **Kimlik Doğrulama** | JWT (JSON Web Tokens) |
+| **ORM** | Entity Framework Core 8 |
+| **API Dokümantasyonu** | Swagger (OpenAPI) |
+| **Nesne Eşleştirme** | AutoMapper |
+| **Bağımlılık Yönetimi** | .NET Core Dahili Dependency Injection (DI) |
+| **Parola Yönetimi** | BCrypt.Net-Next (Güvenli parola hashing için) |
+
+---
+
+## ✨ Temel Özellikler
+
+### 🔐 1. Güvenli Kimlik Doğrulama (JWT)
+- **Kayıt Ol:** `POST /api/User/register`  
+- **Giriş Yap:** `POST /api/User/login`  
+- Workout ve Goal endpoint’leri `[Authorize]` attribute’u ile korunur.  
+  Yalnızca geçerli bir **Bearer Token** ile erişilebilir.
+  
+
+### 🧠 2. Servis Katmanı (Business Logic)
+- Servisler, gelen istekteki JWT token’ı `IHttpContextAccessor` aracılığıyla analiz eder.
+- Kullanıcının kimliği (`UserId`) `ClaimTypes.NameIdentifier` üzerinden alınır.
+- Tüm CRUD işlemleri kullanıcı bazlı filtrelenir.  
+  Böylece kullanıcılar **yalnızca kendi verilerini** görüntüleyebilir veya değiştirebilir.
+
+
+### ⚙️ 3. Merkezi Hata Yönetimi (Middleware)
+- `GlobalExceptionHandler` middleware’i, uygulama genelindeki hataları yakalar.
+- Hata loglanır ve istemciye her zaman standart bir JSON formatında döner:
+  
+  ```json
+  {
+    "status": 500,
+    "message": "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+  }
+
+
+### 🔄 4. Otomatik Nesne Eşleştirme (AutoMapper)
+
+- AppProfile.cs dosyası, Entity ↔ DTO dönüşümlerini otomatikleştirir.
+- DateTimeOffset → DateTime gibi karmaşık dönüşümler özel kurallarla yönetilir.
+
+
+### 🧩 5. API Dokümantasyonu ve Test (Swagger)
+
+- Proje çalıştırıldığında Swagger UI üzerinden tüm endpoint’ler test edilebilir.
+- JWT token desteği entegredir.
+Kullanıcı giriş yaptıktan sonra Authorize butonuyla token girilerek doğrudan test yapılabilir.
+
+---
+
+## 🚀 Projeyi Başlatma (Getting Started)
+
+### 🧰 Gereksinimler
+- .NET 8.0 SDK
+- Visual Studio Code veya Visual Studio 2022
+
+  ---
+
+### ⚡ Kurulum Adımları
+
+```bash
+# 1️⃣ Repo’yu klonla
+git clone https://github.com/tubanursmsk/WorkoutGoalApi.git
+cd WorkoutGoalApi
+
+# 2️⃣ Bağımlılıkları yükle
+dotnet restore
+
+# 3️⃣ Veritabanını Oluşturun
+dotnet ef database update
+
+# 4️⃣ Bu komut, proje ana dizininde WorkoutGoalApi.db adlı SQLite veritabanını oluşturur.
+
+# 5️⃣ Uygulamayı Çalıştırın
+dotnet run
+
+# 6️⃣ Swagger Arayüzünü Açın
+Tarayıcıdan şu adrese gidin ve tüm endpoint’leri test edin.
+http://localhost:5282/swagger
+```
+
+---
+
+## 👥 Örnek Kullanıcı Hesapları
+
+| Rol    | Email                                   | Şifre        |
+| ------ | --------------------------------------- | ------------ |
+| User   | [ali@mail.com](mailto:ali@mail.com)     | Password1234 |
+| User   | [tuba@mail.com](mailto:tuba@mail.com)   | Password1234 |
+
+
+---
+
+## 🧭 API Kullanım Akışı (Örnek)
+Adım	Endpoint	Açıklama
+1️⃣	POST /api/User/register	Yeni kullanıcı oluştur
+2️⃣	POST /api/User/login	JWT token al
+3️⃣	Authorize	Swagger’da token’ı gir
+4️⃣	POST /api/Workout	Yeni egzersiz ekle
+5️⃣	GET /api/Goal	Sadece kendi hedeflerini listele
+
+---
+
+## 🧠 Yazılım Tasarım İlkeleri
+
+- Separation of Concerns (SoC) → Katmanlar arası bağımsızlık
+
+- Single Responsibility Principle (SRP) → Her sınıfın tek bir görevi vardır
+
+- Dependency Injection (DI) → Test edilebilir, modüler yapı
+
+- DTO Kullanımı → Güvenli veri aktarımı ve soyutlama
+
+
+---
+
+## 📸 Görseller
+
+---
+---
+---
+---
+---
+---
+---
+---
+
+
+---
+
+### 🧱 Lisans
+
+MIT Lisansı © 2025 — [tubanursmsk](https://github.com/tubanursmsk)
+
+---
+
+### 🏷️ Etiketler
+
+`Node.js` `ASP.NET Core` `TypeScript` `SQLLite` `DTO` `JWT` `bcrypt` `swagger`  
+`Katmanlı Mimari` `MVC` `REST API` `RBAC` `Session Management`  
+ `Egzersiz takip` `FitnessTracker API`  
+`Backend Development` `API Documentation` `Full Stack` `workout` `goal`
+
+
+
+
+
+
+
+
+
+
+
