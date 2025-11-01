@@ -20,8 +20,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => // burada injectio
 // JWT Authentication
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
+// HttpContextAccessor eklenmesi (kullanıcı bilgilerini almak için)
+builder.Services.AddHttpContextAccessor(); 
+
 // Scoped Services --> sayesinde uygulama boyunca tek bir instance oluşturulur ve istek bazında kullanılır. bu işlem injection yöntemi ile yapılır
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<WorkoutService>();
+// builder.Services.AddScoped<GoalService>();
 
 
 // AutoMapper
@@ -40,7 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Rest API v1");
-        options.RoutePrefix = string.Empty; // http://localhost:5223
+        options.RoutePrefix = string.Empty; // http://localhost:5282
     });
 }
 

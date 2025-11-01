@@ -12,25 +12,43 @@ namespace WorkoutGoalApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: false),
+                    LastName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Goals",
                 columns: table => new
                 {
-                    Gid = table.Column<int>(type: "INTEGER", nullable: false)
+                    GId = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     GoalType = table.Column<string>(type: "TEXT", nullable: false),
                     TargetValue = table.Column<double>(type: "REAL", nullable: false),
                     CurrentValue = table.Column<double>(type: "REAL", nullable: false),
                     StartDate = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
                     EndDate = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UserId1 = table.Column<long>(type: "INTEGER", nullable: false)
+                    IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false),
+                    UserId = table.Column<long>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Goals", x => x.Gid);
+                    table.PrimaryKey("PK_Goals", x => x.GId);
                     table.ForeignKey(
-                        name: "FK_Goals_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Goals_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -40,41 +58,41 @@ namespace WorkoutGoalApi.Migrations
                 name: "Workouts",
                 columns: table => new
                 {
-                    Wid = table.Column<int>(type: "INTEGER", nullable: false)
+                    WId = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     WorkoutType = table.Column<string>(type: "TEXT", nullable: false),
                     Detail = table.Column<string>(type: "TEXT", nullable: false),
-                    DurationMinute = table.Column<int>(type: "INTEGER", nullable: false),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UserId1 = table.Column<long>(type: "INTEGER", nullable: false),
+                    Duration = table.Column<int>(type: "INTEGER", nullable: false),
+                    CaloriesBurned = table.Column<int>(type: "INTEGER", nullable: false),
+                    UserId = table.Column<long>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Workouts", x => x.Wid);
+                    table.PrimaryKey("PK_Workouts", x => x.WId);
                     table.ForeignKey(
-                        name: "FK_Workouts_Users_UserId1",
-                        column: x => x.UserId1,
+                        name: "FK_Workouts_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Goals_UserId1",
+                name: "IX_Goals_UserId",
                 table: "Goals",
-                column: "UserId1");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Workouts_UserId1",
-                table: "Workouts",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Workouts_WorkoutType",
-                table: "Workouts",
-                column: "WorkoutType",
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Workouts_UserId",
+                table: "Workouts",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -85,6 +103,9 @@ namespace WorkoutGoalApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Workouts");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

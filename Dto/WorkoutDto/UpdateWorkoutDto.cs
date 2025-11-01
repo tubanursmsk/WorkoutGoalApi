@@ -6,18 +6,18 @@ namespace WorkoutGoalApi.Dto.WorkoutDto
     // Bazı durumlarda validasyon kuralları değişebilir.
     public class UpdateWorkoutDto
     {
-        [Required(ErrorMessage = "Egzersiz tipi boş olamaz.")]
-        [StringLength(100, MinimumLength = 2, ErrorMessage = "Egzersiz tipi 2 ile 100 karakter arasında olmalıdır.")]
+        [Required]
+        [StringLength(100, MinimumLength = 2)]
         public string WorkoutType { get; set; }
 
-        [Required(ErrorMessage = "Süre boş olamaz.")]
-        [Range(1, 1440, ErrorMessage = "Süre 1 ile 1440 dakika arasında olmalıdır.")]
+        [Required]
+        [Range(1, 1440)]
         public int Duration { get; set; }
 
-        [Required(ErrorMessage = "Tarih boş olamaz.")]
+        [Required]
         public DateTime Date { get; set; }
 
-        [Range(0, 10000, ErrorMessage = "Yakılan kalori 0 ile 10000 arasında olmalıdır.")]
+        [Range(0, 10000)]
         public int CaloriesBurned { get; set; }
     }
 }

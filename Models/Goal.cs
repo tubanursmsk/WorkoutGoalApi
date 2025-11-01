@@ -10,18 +10,16 @@ namespace WorkoutGoalApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int GId { get; set; }
-
+        public long GId { get; set; }
         public string GoalType { get; set; } = string.Empty;
-
         public double TargetValue { get; set; } = 0.0;
-
         public double CurrentValue { get; set; } = 0.0;
-
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public bool IsCompleted { get; set; } 
-        public int UserId { get; set; } // Foreign Key
+
+        [ForeignKey("User")]
+        public long UserId { get; set; } // Foreign Key
         public User User { get; set; }  // Navigation Property
     }
 }

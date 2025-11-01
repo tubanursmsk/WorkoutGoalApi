@@ -7,22 +7,22 @@ namespace WorkoutGoalApi.Dto.GoalDto
     // ama şimdilik tam güncelleme yapalım:
     public class UpdateGoalDto
     {
-        [Required(ErrorMessage = "Hedef tipi boş olamaz.")]
-        [StringLength(150, MinimumLength = 3, ErrorMessage = "Hedef tipi 3 ile 150 karakter arasında olmalıdır.")]
-        public string GoalType { get; set; }
+        [Required]
+        [StringLength(150, MinimumLength = 3)]
+        public string? GoalType { get; set; }
 
-        [Required(ErrorMessage = "Hedef değer boş olamaz.")]
-        [Range(0.1, double.MaxValue, ErrorMessage = "Hedef değer 0'dan büyük olmalıdır.")]
+        [Required]
+        [Range(0.1, double.MaxValue)]
         public double TargetValue { get; set; }
 
-        [Required(ErrorMessage = "Mevcut değer boş olamaz.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Mevcut değer 0 veya daha büyük olmalıdır.")]
+        [Required]
+        [Range(0, double.MaxValue)]
         public double CurrentValue { get; set; }
 
-        [Required(ErrorMessage = "Başlangıç tarihi boş olamaz.")]
+        [Required]
         public DateTime StartDate { get; set; }
 
-        [Required(ErrorMessage = "Bitiş tarihi boş olamaz.")]
+        [Required]
         public DateTime EndDate { get; set; }
     }
 }

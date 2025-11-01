@@ -19,7 +19,7 @@ namespace WorkoutGoalApi.Migrations
 
             modelBuilder.Entity("WorkoutGoalApi.Models.Goal", b =>
                 {
-                    b.Property<int>("Gid")
+                    b.Property<long>("GId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -33,21 +33,21 @@ namespace WorkoutGoalApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTimeOffset>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.Property<double>("TargetValue")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("UserId")
+                    b.Property<long>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UserId1")
-                        .HasColumnType("INTEGER");
+                    b.HasKey("GId");
 
-                    b.HasKey("Gid");
-
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Goals");
                 });
@@ -91,8 +91,11 @@ namespace WorkoutGoalApi.Migrations
 
             modelBuilder.Entity("WorkoutGoalApi.Models.Workout", b =>
                 {
-                    b.Property<int>("Wid")
+                    b.Property<long>("WId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CaloriesBurned")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset>("CreatedAt")
@@ -102,25 +105,19 @@ namespace WorkoutGoalApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("DurationMinute")
+                    b.Property<int>("Duration")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<long>("UserId1")
+                    b.Property<long>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("WorkoutType")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Wid");
+                    b.HasKey("WId");
 
-                    b.HasIndex("UserId1");
-
-                    b.HasIndex("WorkoutType")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Workouts");
                 });
@@ -129,7 +126,7 @@ namespace WorkoutGoalApi.Migrations
                 {
                     b.HasOne("WorkoutGoalApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -140,7 +137,7 @@ namespace WorkoutGoalApi.Migrations
                 {
                     b.HasOne("WorkoutGoalApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
