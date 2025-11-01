@@ -6,7 +6,7 @@ Uygulama güvenliği **JWT tabanlı kimlik doğrulama** sistemiyle sağlanır.
 
 ---
 
-## 🏛️ Mimari Felsefe ve Tasarım Prensipleri
+### 🏛️ Mimari Felsefe ve Tasarım Prensipleri
 
 Proje, **Katmanlı Mimari (N-Tier Architecture)** ve **Hizmet Odaklı Mimari (Service-Oriented Architecture)** prensiplerine uygun olarak tasarlanmıştır.  
 Amaç, kodun bakımı kolay, test edilebilir ve ölçeklenebilir bir yapıda olmasıdır.
@@ -22,7 +22,7 @@ Bu yapı sayesinde **sorumluluk ayrımı (Separation of Concerns)** korunur ve s
 
 ---
 
-## 💻 Teknik Altyapı (Technical Stack)
+## #💻 Teknik Altyapı (Technical Stack)
 
 | Bileşen | Teknoloji |
 |----------|------------|
@@ -88,24 +88,35 @@ Kullanıcı giriş yaptıktan sonra Authorize butonuyla token girilerek doğruda
 
 ### ⚡ Kurulum Adımları
 
-```bash
 # 1️⃣ Repo’yu klonla
+
+```bash
 git clone https://github.com/tubanursmsk/WorkoutGoalApi.git
+```
+```bash
 cd WorkoutGoalApi
+```
 
 # 2️⃣ Bağımlılıkları yükle
+```bash
 dotnet restore
+```
 
 # 3️⃣ Veritabanını Oluşturun
+```bash
 dotnet ef database update
+```
 
 # 4️⃣ Bu komut, proje ana dizininde WorkoutGoalApi.db adlı SQLite veritabanını oluşturur.
 
 # 5️⃣ Uygulamayı Çalıştırın
+```bash
 dotnet run
+```
 
 # 6️⃣ Swagger Arayüzünü Açın
 Tarayıcıdan şu adrese gidin ve tüm endpoint’leri test edin.
+```bash
 http://localhost:5282/swagger
 ```
 
@@ -128,6 +139,11 @@ Adım	Endpoint	Açıklama
 3️⃣	Authorize	Swagger’da token’ı gir
 4️⃣	POST /api/Workout	Yeni egzersiz ekle
 5️⃣	GET /api/Goal	Sadece kendi hedeflerini listele
+
+---
+
+### appsettings.json
+
 
 ---
 
