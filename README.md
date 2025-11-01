@@ -202,6 +202,10 @@ Adım	Endpoint	Açıklama
 
 ---
 
+<img width="960" height="516" alt="image" src="https://github.com/user-attachments/assets/c1bdf428-58b7-4094-ad39-ccc5f4290332" />
+
+---
+
 <img width="959" height="511" alt="goal list" src="https://github.com/user-attachments/assets/81dd1634-bcb9-4d31-a6f1-430f6168dcfe" />
 
 ---
@@ -215,10 +219,6 @@ Adım	Endpoint	Açıklama
 ---
 
 <img width="683" height="384" alt="image" src="https://github.com/user-attachments/assets/ae4a2f73-50b5-4400-a988-8a852568fbb2" />
-
----
-
-<img width="960" height="516" alt="image" src="https://github.com/user-attachments/assets/c1bdf428-58b7-4094-ad39-ccc5f4290332" />
 
 ---
 
