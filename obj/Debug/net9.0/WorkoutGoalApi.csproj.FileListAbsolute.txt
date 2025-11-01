@@ -166,3 +166,4 @@ C:\Users\PC\Documents\WorkoutGoalApi\WorkoutGoalApi\obj\Debug\net9.0\ref\Workout
 C:\Users\PC\Documents\WorkoutGoalApi\WorkoutGoalApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\PC\Documents\WorkoutGoalApi\WorkoutGoalApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\PC\Documents\WorkoutGoalApi\WorkoutGoalApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\PC\Documents\WorkoutGoalApi\WorkoutGoalApi\obj\Debug\net9.0\WorkoutGoalApi.sourcelink.json

@@ -10,7 +10,9 @@ namespace WorkoutGoalApi.Utils
         {
         }
         public DbSet<User> Users { get; set; } // DbSet, veritabanındaki tabloları temsil eder
-    
+        
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Goal> Goals { get; set; }
 
 
 
