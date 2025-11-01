@@ -218,6 +218,10 @@ Adım	Endpoint	Açıklama
 
 ---
 
+<img width="960" height="516" alt="image" src="https://github.com/user-attachments/assets/c1bdf428-58b7-4094-ad39-ccc5f4290332" />
+
+---
+
 <img width="683" height="222" alt="image" src="https://github.com/user-attachments/assets/489715b4-7b77-40cb-b65c-2d65a335784f" />
 
 ---
